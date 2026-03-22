@@ -1,8 +1,8 @@
-import axios from "axios";
- 
+import axios from 'axios';
+
 const api = axios.create({
-// Vite wymaga prefixu import.meta.env dla zmiennych z .env
-  baseURL: import.meta.env.VITE_API_URL,
+  // Musisz mieć tutaj 8081, bo na tym porcie wystawiłeś Backend w Dockerze
+  baseURL: 'http://localhost:8081/api', 
 });
- 
+
 export default api;
