@@ -1,12 +1,11 @@
-import Dashboard from './components/Dashboard'
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f5f7fa' }}>
-      {/* Tutaj wywołujemy Twój komponent Dashboard */}
-      <Dashboard />
-    </div>
-  )
+return (
+<div>
+<Dashboard />
+</div>
+);
 }
 
-export default App
+export default App;

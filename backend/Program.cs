@@ -1,60 +1,66 @@
-using Microsoft.EntityFrameworkCore;
 using CloudBackend.Data;
-
+using Microsoft.EntityFrameworkCore;
+using CloudBackend.Models;
 var builder = WebApplication.CreateBuilder(args);
-
-// 1. Dodaj kontrolery
+// --- SEKCJA USŁUG (Dependency Injection) ---
+// 1. Rejestracja Kontrolerów (potrzebne, aby nasze API działało)
 builder.Services.AddControllers();
-
-// 2. Pobierz Connection String z Docker Compose
-var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") 
-    ?? builder.Configuration.GetConnectionString("DefaultConnection");
-
-// 3. Konfiguracja bazy danych (SQL Server)
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
-
+// 2. Dokumentacja API (Swagger/OpenAPI)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// 4. CORS - ważne dla połączenia React -> .NET
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyOrigin()
+// 3. PobranieConnection Stringa(zmiennejśrodowiskowejz Dockera)
+// Najpierwszukajw zmiennychśrodowiskowych(Docker),
+// a jeśli tam nie ma (lokalnyterminal), weźz appsettings.json
+var connectionString= Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
+?? builder.Configuration.GetConnectionString("DefaultConnection");
+// 4. Rejestracja bazy danych MS SQL Server
+builder.Services.AddDbContext<AppDbContext>(options =>
+options.UseSqlServer(connectionString));
+// 5. Konfiguracja CORS - pozwala Reactowi(port 8080) na dostęp do API
+builder.Services.AddCors(options => {
+options.AddDefaultPolicy(policy => {
+policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
-    });
 });
-
+});
 var app = builder.Build();
-
-// --- KLUCZOWY MOMENT: AUTOMATYCZNE TWORZENIE BAZY ---
+// --- AUTOMATYCZNE TWORZENIE BAZY I DANYCH ---
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<AppDbContext>();
-        // To polecenie stworzy bazę i tabele, jeśli ich nie ma w SQL Edge
-        context.Database.EnsureCreated();
-        Console.WriteLine(">>> Baza danych CloudAppDb została sprawdzona/stworzona pomyślnie.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($">>> BŁĄD PODCZAS TWORZENIA BAZY: {ex.Message}");
-    }
-}
-// ----------------------------------------------------
-
-if (app.Environment.IsDevelopment())
+var services = scope.ServiceProvider;
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+var context = services.GetRequiredService<AppDbContext>();
+// 1. Tworzy bazę i tabele, jeśli ich nie ma
+context.Database.EnsureCreated();
+// 2. Dodaje startowe dane, jeśli tabela jestpusta (opcjonalne, alefajne)
+if (!context.Tasks.Any())
+{
+            context.Tasks.AddRange(
+                new CloudTask { Name = "Zrobić kawę",IsCompleted = true },
+                new CloudTask { Name = "Uruchomić projekt w Dockerze",IsCompleted = false }
+            );
+            context.SaveChanges();
 }
-
-app.UseCors(); // To pozwala Frontendowi "gadać" z Backendem
-app.UseAuthorization();
+}
+catch (Exception ex)
+{
+Console.WriteLine($"Błąd podczas tworzenia bazy: {ex.Message}");
+}
+}
+// --- SEKCJA POTOKU HTTP (Middleware) ---
+// Uruchamiamy Swaggera zawsze w fazie deweloperskiej i testowej
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cloud API V1");
+c.RoutePrefix = string.Empty;
+});
+// Ważne: W Dockerze często używamy HTTP wewnątrz sieci,
+// więc wyłączamy wymuszone przekierowanie naHTTPS dla uproszczenia nauki
+// app.UseHttpsRedirection();
+app.UseCors();
+// Mapowanie kontrolerów (to sprawi, że TasksController zacznie działać)
 app.MapControllers();
 app.Run();

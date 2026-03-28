@@ -1,4 +1,4 @@
-# check_list - Check lista do wózków widłowych by Leszek Kłapkowski
+# Cloud Task Manager (2026) by Yevhenii Duman 95069
  
 Projekt natywnej aplikacji chmurowej realizowany w architekturze 3-warstwowej.
  
@@ -13,8 +13,9 @@ Ten projekt został zaplanowany z myślą o usługach PaaS (Platform as a Servic
  
 ## 🏗 Status Projektu i Dokumentacja
 * [x] **Artefakt 1:** Zaplanowano strukturę folderów i diagram C4 (dostępny w `/docs`).
-* [X] **Artefakt 2:** Konfiguracja środowiska Docker (w trakcie...).
+* [x] **Artefakt 2:** Konfiguracja środowiska Docker.
+* [x] **Artefakt 3:** Programowanie front-endu (React, Vite i komunikacja z API)
+* [x] **Artefakt 4:** Programowanie back-endu – REST API, baza danych i Docker
+* [x] **Artefakt 5:** Trwałość danych i profesjonalny kontrakt API (EF Migrations + DTO + UI Form)
  
-> **Informacja:** Ten plik będzie ewoluował. W kolejnych etapach dodamy tutaj sekcje 'Quick Start', opis zmiennych środowiskowych oraz instrukcję wdrożenia (CI/CD).- [x] **Artefakt 3**: Zadanie 03 - Dzia�aj�ca warstwa prezentacji 
-- [x] **Artefakt 3**: Zadanie 03 - Dzialajaca warstwa prezentacji 
-- [x] **Artefakt 4**: Zadanie 04 - Dzialajaca warstwa logiki backendu 
+> **Informacja:** Ten plik będzie ewoluował. W kolejnych etapach dodamy tutaj sekcje 'Quick Start', opis zmiennych środowiskowych oraz instrukcję wdrożenia (CI/CD).
