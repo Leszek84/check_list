@@ -1,4 +1,4 @@
-# Cloud Task Manager (2026) by Yevhenii Duman 95069
+# Cloud Task Manager (2026) by Leszek Kłapkowski 25483
  
 Projekt natywnej aplikacji chmurowej realizowany w architekturze 3-warstwowej.
  
