@@ -5170,19 +5170,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admstud\\.nuget\\packages\\": {}
+    "/home/leszek/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\cloud-app-yd\\backend\\CloudBackend.csproj",
+      "projectUniqueName": "/home/leszek/check_list/backend/CloudBackend.csproj",
       "projectName": "CloudBackend",
-      "projectPath": "C:\\cloud-app-yd\\backend\\CloudBackend.csproj",
-      "packagesPath": "C:\\Users\\admstud\\.nuget\\packages\\",
-      "outputPath": "C:\\cloud-app-yd\\backend\\obj\\",
+      "projectPath": "/home/leszek/check_list/backend/CloudBackend.csproj",
+      "packagesPath": "/home/leszek/.nuget/packages/",
+      "outputPath": "/home/leszek/check_list/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\admstud\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/leszek/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -5206,7 +5206,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -5254,7 +5254,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
