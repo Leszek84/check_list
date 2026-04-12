@@ -18,4 +18,5 @@ Ten projekt został zaplanowany z myślą o usługach PaaS (Platform as a Servic
 * [x] **Artefakt 4:** Programowanie back-endu – REST API, baza danych i Docker
 * [x] **Artefakt 5:** Trwałość danych i profesjonalny kontrakt API (EF Migrations + DTO + UI Form)
 * [x] **Artefakt 6: Wdrożenie w chmurze Microsoft Azure (PaaS)**
+* [x] **Artefakt 7:** Bezpieczne zarządzanie sekretami – integracja z Azure Key Vault, eliminacja sekretów z kodu źródłowego, wykorzystanie Managed Identity oraz potwierdzenie działania aplikacji po zmianach.
 > **Informacja:** Ten plik będzie ewoluował. W kolejnych etapach dodamy tutaj sekcje 'Quick Start', opis zmiennych środowiskowych oraz instrukcję wdrożenia (CI/CD).
