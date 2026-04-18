@@ -313,3 +313,15 @@ C:\cloud-app-yd\backend\obj\Debug\net9.0\refint\CloudBackend.dll
 C:\cloud-app-yd\backend\obj\Debug\net9.0\CloudBackend.pdb
 C:\cloud-app-yd\backend\obj\Debug\net9.0\CloudBackend.genruntimeconfig.cache
 C:\cloud-app-yd\backend\obj\Debug\net9.0\ref\CloudBackend.dll
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.csproj.AssemblyReference.cache
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.AssemblyInfoInputs.cache
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.AssemblyInfo.cs
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.csproj.CoreCompileInputs.cache
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.sourcelink.json
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.dll
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\refint\CloudBackend.dll
+C:\Users\admstud\Desktop\check_list\backend\obj\Debug\net9.0\CloudBackend.pdb
